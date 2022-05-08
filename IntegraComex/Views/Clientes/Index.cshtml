@@ -1,0 +1,161 @@
+﻿@model IntegraComex.Models.ClienteVM
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .content {
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        width: 100%;
+        padding: 1.5em;
+        margin-top: 0.5em;
+    }
+
+    .links {
+        margin-top: 15px;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        color: white;
+        font-family: 'Radio Canada', sans-serif;
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 3em;
+        color: #007da4;
+    }
+
+        .logo span {
+            color: #fbb03b;
+        }
+
+    .table-wrapper {
+        box-shadow: 0 0 20px black;
+        margin-top: 1.2em;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+        .table-wrapper > * {
+            padding: 2em;
+        }
+
+    .customer-table {
+        background-color: #999999;
+    }
+
+    .customer-form {
+        background-color: #4d4d4d;
+    }
+
+        .customer-form form .form-item {
+            margin: 0;
+            padding: 1em;
+        }
+
+        .customer-form form button,
+        .customer-form form input {
+            width: 100%;
+            border: none;
+            background: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            color: white;
+        }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield; /* Firefox */
+    }
+
+        .customer-table table,
+        .customer-table table a i {
+            color: white;
+        }
+
+        .customer-form form .button input {
+            background-color: #fbb03b;
+            border-bottom: 0;
+            text-transform: uppercase;
+            padding: 1em;
+        }
+
+        .form-item {
+            margin: 1em;
+        }
+
+        .customer-form form {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+            .customer-form form .button input:hover,
+            .customer-form form .button input:hover {
+                background-color: #fbb03b;
+                transition: 0.3s;
+                outline: 0;
+            }
+</style>
+<div class="content">
+    <h1 class="logo"><span></span>Maneja tus <span>Clientes</span></h1>
+    <div class="table-wrapper">
+        <div class="customer-table">
+            <h3>Informacion de Clientes</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Cuit</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var modelo in Model.ListaClientes)
+                        {
+                        <tr>
+                        <td>@modelo.Id</td>
+                        <td>@modelo.Telefono</td>
+                        <td>@modelo.Direccion</td>
+                        <td>@modelo.NroCuit</td>
+                        <td>@modelo.RazonSocial</td>
+                        <td><a href="Cliente/Customer/Edit/@modelo.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a href="/Customer/Delete/@modelo.Id"><i class="fa-solid fa-trash-can"></i></a></td>
+                        </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+        <div class="customer-form">
+            <h3>Añadir Cliente</h3>
+            <form action="Index" method="post">
+                <div class="form-item">
+                    <label for="Cuit">Cuit</label>
+                    <input type="text" name="cuit" id="inputcuit" value="" required />
+                </div>
+                <div class="form-item">
+                    <label for="telefono">Telefono</label>
+                    <input type="number" name="telefono" id="telefono" value="" required />
+                </div>
+                <div class="form-item">
+                    <label for="direccion">Direccion</label>
+                    <input type="text" name="direccion" id="direccion" value="" required />
+                </div>
+                <div class="form-item button">
+                    <input type="submit" value="Add" required />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
