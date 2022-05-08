@@ -16,14 +16,6 @@ namespace IntegraComex.Controllers
         {
             this.context = context;
         }
-        [HttpGet]
-        public IActionResult Index()
-        {
-            ClienteVM clientes = new ClienteVM();
-            clientes.ListaClientes = context.Clientes.ToList();
-            return View(clientes);
-        }
-        [HttpPost]
         public IActionResult Index(string cuit, int telPais, int telPersonal, string direccion)
         {
             if (cuit != null && telPais != 0 && telPersonal != 0 && direccion != null)
@@ -61,18 +53,30 @@ namespace IntegraComex.Controllers
             clientes.ListaClientes = context.Clientes.ToList();
             return View(clientes);
         }
-        public IActionResult Modificar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            var model = context.Clientes.Find(id);
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Modificar(ClienteVM cliente)
+        public IActionResult Editar(Cliente cliente)
         {
-            return View();
+            cliente.Activo = true;
+            context.Attach(cliente);
+            context.Entry(cliente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
-        public IActionResult Borrar()
+        public IActionResult Borrar(int id)
         {
-            return View();
+            if(id != 0)
+            {
+                var model = new Cliente();
+                model = context.Clientes.Find(id);
+                context.Clientes.Remove(model);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index","Clientes");
         }
     }
 }

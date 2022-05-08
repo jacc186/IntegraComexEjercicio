@@ -140,3 +140,4 @@ C:\Users\W10-PC\Desktop\IntegraComexEjercicio\IntegraComex\obj\Debug\net5.0\refi
 C:\Users\W10-PC\Desktop\IntegraComexEjercicio\IntegraComex\obj\Debug\net5.0\IntegraComex.pdb
 C:\Users\W10-PC\Desktop\IntegraComexEjercicio\IntegraComex\obj\Debug\net5.0\IntegraComex.genruntimeconfig.cache
 C:\Users\W10-PC\Desktop\IntegraComexEjercicio\IntegraComex\obj\Debug\net5.0\ref\IntegraComex.dll
+C:\Users\W10-PC\Desktop\IntegraComexEjercicio\IntegraComex\obj\Debug\net5.0\Razor\Views\Clientes\Editar.cshtml.g.cs

@@ -1,4 +1,10 @@
-﻿@model IntegraComex.Models.ClienteVM
+﻿@model IntegraComex.Models.Cliente
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
 <style>
     * {
         box-sizing: border-box;
@@ -37,7 +43,8 @@
         box-shadow: 0 0 20px black;
         margin-top: 1.2em;
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr;
+        border-radius:26px;
     }
 
         .table-wrapper > * {
@@ -50,6 +57,7 @@
 
     .customer-form {
         background-color: #4d4d4d;
+        border-radius:26px;
     }
 
         .customer-form form .form-item {
@@ -104,56 +112,39 @@
             transition: 0.3s;
             outline: 0;
         }
+
+
 </style>
+
+
 <div class="content">
     <h1 class="logo"><span></span>Maneja tus <span>Clientes</span></h1>
     <div class="table-wrapper">
-        <div class="customer-table">
-            <h3>Informacion de Clientes</h3>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Telefono</th>
-                        <th>Direccion</th>
-                        <th>Cuit</th>
-                        <th>Razon Social<th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var modelo in Model.ListaClientes)
-                    {
-                    <tr>
-                        <td>@modelo.Id</td>
-                        <td>@modelo.Telefono</td>
-                        <td>@modelo.Direccion</td>
-                        <td>@modelo.NroCuit</td>
-                        <td>@modelo.RazonSocial</td>
-                        <td><a href="/Clientes/Editar/@modelo.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a href="/Clientes/Borrar/@modelo.Id"><i class="fa-solid fa-trash-can"></i></a></td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
         <div class="customer-form">
-            <h3>Añadir Cliente</h3>
-            <form action="/Clientes/Index" method="post">
+            <h3>Editar</h3>
+            <form action="/Clientes/Editar" method="post">
+                <div class="form-item">
+                    <label for="Id">Id</label>
+                    <input type="text" name="Id" id="inputId" value="@Model.Id" required readonly />
+                </div>
                 <div class="form-item">
                     <label for="Cuit">Cuit</label>
-                    <input type="number" name="cuit" id="inputcuit" value="" required />
+                    <input type="number" name="NroCuit" id="inputcuit" value="@Model.NroCuit" required />
+                </div>
+                <div class="form-item">
+                    <label for="RSocial">Razon Social</label>
+                    <input type="text" name="RazonSocial" id="inputRSocial" value="@Model.RazonSocial" required />
                 </div>
                 <div class="form-item">
                     <label for="telefono" style="width: 100%;">Telefono</label>
-                    <input type="tel" pattern="[0-9]{3}" maxlength="4" name="telPais" placeholder="261" style="width: 25%;">
-                    <input type="tel" name="telPersonal" maxlength="9" value="" required placeholder="702 9252" style="width: 72%;" />
+                    <input type="tel" value="@Model.Telefono" maxlength="10" name="Telefono" placeholder="">
                 </div>
                 <div class="form-item">
                     <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" id="inputdireccion" value="" required />
+                    <input type="text" name="Direccion" id="inputdireccion" value="@Model.Direccion" required />
                 </div>
                 <div class="form-item button">
-                    <input type="submit" value="Add" required />
+                    <input type="submit" value="Editar" required />
                 </div>
             </form>
         </div>

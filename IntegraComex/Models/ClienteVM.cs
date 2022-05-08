@@ -9,6 +9,8 @@ namespace IntegraComex.Models
         public string NroCuit { get; set; }
         public string RazonSocial { get; set; }
         public long Telefono { get; set; }
+        public long TelPais { get; set; }
+        public long TelPersonal { get; set; }
         public string Direccion { get; set; }
         public bool Activo { get; set; }
 
