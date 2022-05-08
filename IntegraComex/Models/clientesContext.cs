@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IntegraComex.Models
 {
-    public partial class clientesContext : DbContext
+    public partial class ClientesContext : DbContext
     {
-        public clientesContext()
+        public ClientesContext()
         {
         }
 
-        public clientesContext(DbContextOptions<clientesContext> options)
+        public ClientesContext(DbContextOptions<ClientesContext> options)
             : base(options)
         {
         }
@@ -24,7 +24,7 @@ namespace IntegraComex.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=clientes;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=clientes;Trusted_Connection=True;;Database=Clientes;Trusted_Connection=True;");
             }
         }
 
@@ -34,15 +34,11 @@ namespace IntegraComex.Models
 
             modelBuilder.Entity<Cliente>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Direccion)
                     .IsRequired()
                     .HasMaxLength(200);
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
 
                 entity.Property(e => e.NroCuit)
                     .IsRequired()

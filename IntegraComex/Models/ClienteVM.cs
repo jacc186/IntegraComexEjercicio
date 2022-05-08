@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace IntegraComex.Models
 {
@@ -12,5 +13,11 @@ namespace IntegraComex.Models
         public bool Activo { get; set; }
 
         public List<Cliente> ListaClientes { get; set; }
+    }
+
+    public class Data
+    {
+        [JsonProperty("nombre")]
+        public string Nombre { get; set; }
     }
 }

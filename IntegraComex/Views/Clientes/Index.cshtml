@@ -79,33 +79,32 @@
         -moz-appearance: textfield; /* Firefox */
     }
 
-        .customer-table table,
-        .customer-table table a i {
-            color: white;
-        }
+    .customer-table table,
+    .customer-table table a i {
+        color: white;
+    }
 
-        .customer-form form .button input {
+    .customer-form form .button input {
+        background-color: #FFC366;
+        border-bottom: 0;
+        text-transform: uppercase;
+        padding: 1em;
+    }
+
+    .form-item {
+        margin: 1em;
+    }
+
+    .customer-form form {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+        .customer-form form .button input:hover {
             background-color: #fbb03b;
-            border-bottom: 0;
-            text-transform: uppercase;
-            padding: 1em;
+            transition: 0.3s;
+            outline: 0;
         }
-
-        .form-item {
-            margin: 1em;
-        }
-
-        .customer-form form {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
-
-            .customer-form form .button input:hover,
-            .customer-form form .button input:hover {
-                background-color: #fbb03b;
-                transition: 0.3s;
-                outline: 0;
-            }
 </style>
 <div class="content">
     <h1 class="logo"><span></span>Maneja tus <span>Clientes</span></h1>
@@ -116,24 +115,25 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Cuit</th>
                         <th>Telefono</th>
                         <th>Direccion</th>
+                        <th>Cuit</th>
+                        <th>Razon Social<th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var modelo in Model.ListaClientes)
-                        {
-                        <tr>
+                    {
+                    <tr>
                         <td>@modelo.Id</td>
                         <td>@modelo.Telefono</td>
                         <td>@modelo.Direccion</td>
                         <td>@modelo.NroCuit</td>
                         <td>@modelo.RazonSocial</td>
-                        <td><a href="Cliente/Customer/Edit/@modelo.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a href="/Customer/Delete/@modelo.Id"><i class="fa-solid fa-trash-can"></i></a></td>
-                        </tr>
-                        }
+                        <td><a href="/Clientes/Editar/@modelo.Id"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a href="/Clientes/Borrar/@modelo.Id"><i class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -145,12 +145,13 @@
                     <input type="text" name="cuit" id="inputcuit" value="" required />
                 </div>
                 <div class="form-item">
-                    <label for="telefono">Telefono</label>
-                    <input type="number" name="telefono" id="telefono" value="" required />
+                    <label for="telefono" style="width: 100%;">Telefono</label>
+                    <input type="tel" pattern="[0-9]{3}" maxlength="4" name="telPais" placeholder="261" style="width: 25%;">
+                    <input type="tel" name="telPersonal" maxlength="9" value="" required placeholder="702 9252" style="width: 72%;" />
                 </div>
                 <div class="form-item">
                     <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" value="" required />
+                    <input type="text" name="direccion" id="inputdireccion" value="" required />
                 </div>
                 <div class="form-item button">
                     <input type="submit" value="Add" required />

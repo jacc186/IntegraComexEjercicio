@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programacion\\Web\\Integra\\IntegraComex\\IntegraComex.csproj": {}
+    "C:\\Users\\W10-PC\\Desktop\\IntegraComexEjercicio\\IntegraComex\\IntegraComex.csproj": {}
   },
   "projects": {
-    "C:\\Programacion\\Web\\Integra\\IntegraComex\\IntegraComex.csproj": {
+    "C:\\Users\\W10-PC\\Desktop\\IntegraComexEjercicio\\IntegraComex\\IntegraComex.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programacion\\Web\\Integra\\IntegraComex\\IntegraComex.csproj",
+        "projectUniqueName": "C:\\Users\\W10-PC\\Desktop\\IntegraComexEjercicio\\IntegraComex\\IntegraComex.csproj",
         "projectName": "IntegraComex",
-        "projectPath": "C:\\Programacion\\Web\\Integra\\IntegraComex\\IntegraComex.csproj",
+        "projectPath": "C:\\Users\\W10-PC\\Desktop\\IntegraComexEjercicio\\IntegraComex\\IntegraComex.csproj",
         "packagesPath": "C:\\Users\\W10-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Programacion\\Web\\Integra\\IntegraComex\\obj\\",
+        "outputPath": "C:\\Users\\W10-PC\\Desktop\\IntegraComexEjercicio\\IntegraComex\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\W10-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,6 +59,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.16, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

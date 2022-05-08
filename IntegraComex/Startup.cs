@@ -26,7 +26,7 @@ namespace IntegraComex
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<clientesContext>(options =>
+            services.AddDbContext<ClientesContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
