@@ -1,3 +1,3 @@
 # IntegraComexEjercicio
 
-https://raw.githubusercontent.com/jacc186/IntegraComexEjercicio/InkedScreenshot_1_LI.jpg
+https://raw.githubusercontent.com/jacc186/IntegraComexEjercicio/main/InkedScreenshot_1_LI.jpg
